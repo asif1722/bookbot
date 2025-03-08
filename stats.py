@@ -12,3 +12,13 @@ def char_counter(book):
         else:
             char_dict[char] = 1
     return char_dict
+
+def sorter(dict):
+    return dict["count"]
+
+def char_dict_lister(char_dict):
+    dict_list = []
+    for dict in char_dict:
+        dict_list.append({'char':dict, 'count':char_dict[dict]})
+    dict_list.sort(reverse=True, key=sorter)
+    return dict_list
