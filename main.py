@@ -1,6 +1,10 @@
+import sys
 from stats import *
 
 def main():
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
     path, book = get_book_text()
     word_count = word_counter(book)
     char_count = char_counter(book)
@@ -9,7 +13,7 @@ def main():
     
     
 def get_book_text():
-    path = input("Enter the filepath to the book: ")
+    path = sys.argv[1]
     with open(path) as f:
         book_text = f.read()
         return path, book_text
